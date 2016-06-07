@@ -1,5 +1,5 @@
 {
-  "name": "Start",
+  "name": "stitch",
   "author": "Clément Girault",
   "devDependencies": {
     "browser-sync": "^2.11.1",

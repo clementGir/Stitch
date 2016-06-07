@@ -19,6 +19,10 @@ switch ($page) {
     case 'appgyro':
         $page = "appgyro";
         break;
+
+    case 'home':
+        $page = "home";
+        break;
   
     default:
         $page = "home";
@@ -32,8 +36,8 @@ switch ($page) {
   <head>
     <meta charset="utf-8">
     <title>Stitch</title>
-    <meta name="description" content="An interractive webGL experience through 3D soundscapes">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"><!-- shrink-to-fit=no -->
+    <meta name="description" content="Stitch is a virtual reality beatmaker, an interractive webGL experience through 3D soundscapes.">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -54,7 +58,7 @@ switch ($page) {
     <link rel="icon" type="image/png" href="assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon.ico">
     <meta name="msapplication-TileColor" content="#8500ff">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-144x144.png">
     <meta name="msapplication-config" content="assets/img/favicons/browserconfig.xml">

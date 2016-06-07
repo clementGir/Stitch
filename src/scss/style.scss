@@ -10,7 +10,6 @@ body {
   text-align: center;
   overflow: hidden;
 
-
   .loader {
     position: absolute;
     top: 50%;
@@ -23,19 +22,15 @@ body {
     margin: 0 auto;
     z-index: -1;  
     overflow: hidden;
-    margin-top: -45px;
-    
+    margin-top: -45px;    
     opacity: 0;
     animation: loaderStart 1.1s cubic-bezier(0.49, -0.31, 0.56, 1.41) forwards;
-    
-    
 
     @keyframes loaderStart {
       0% {
         opacity: 0;
         transform: scale(0);
       }
-
       100% {
         opacity: 1;
         transform: scale(1);
@@ -50,7 +45,6 @@ body {
       left: 0;
       top: 0;
       border-radius: 2px;
-
       opacity: 0;
       animation: loaderStart .6s forwards;
     }   
@@ -141,6 +135,7 @@ body {
 
         p {
           font-family: "fira-sans-2",serif;
+          font-weight: 500;
           font-size: 25px;
           margin: 0;
           line-height: 25px;
@@ -149,22 +144,13 @@ body {
       
       span {
         display: inline-block;
-        background-repeat: no-repeat;
-        background-image: url(../img/iconSprite.svg);
         margin-top: 9px;
       }
 
       &.info span {
         width: 18px;
         height: 18px;
-        background-position: 0 -34px;
         margin-top: 11px;
-      }
-
-      &.login span {
-        width: 22px;
-        height: 22px;
-        background-position: 0 0;
       }
     }
   }
@@ -189,7 +175,7 @@ body {
     h2 {
       font-family: "fira-sans-2",serif;
       text-align: center;
-      font-weight: 100;
+      font-weight: 500;
       font-size: 21px;
       line-height: 30px;
       margin: 0 auto;
@@ -481,19 +467,22 @@ body {
       z-index: 1;
       width: 100%;
       height: 100%;
+      pointer-events: none;
       
 
       a {
         position: absolute;
         left: 15px;
         top: -65px;
-        border-bottom: 3px solid #8500ff;
+        border-bottom: 3px solid $primaryColor;
         cursor: pointer;
         padding-bottom: 7px;
         transition: top .4s 1.7s ease-out;
+        pointer-events: all;
 
         p {
           font-family: "fira-sans-2",serif;
+          font-weight: 500;
           font-size: 25px;
           margin: 0;
           line-height: 25px;
@@ -509,9 +498,10 @@ body {
         border-radius: 50%;
         border: 0;
         margin: 10px;
-        background-color: $primaryColor;
+        background-color: #fff;
         cursor: pointer;
         transition: top .4s 1.7s ease-out;
+        pointer-events: all;
 
         &:focus {outline:0;}
 
@@ -535,7 +525,7 @@ body {
             top: 50%;
             display: block;
             width: 2px;
-            background-color: #fff;
+            background-color: $primaryColor;
 
             &:nth-child(1) {
                 left: 0;
@@ -664,6 +654,7 @@ body {
           height: 24px;
           overflow: hidden;
           line-height: 24px;
+          font-weight: 500;
 
           span {
             opacity: 0;
@@ -691,6 +682,7 @@ body {
             vertical-align: top;
             width: 250px;
             opacity: 0;
+            pointer-events: none;
 
             &.authorised .bottom a {
               display: inline-block;
@@ -1031,7 +1023,11 @@ body {
       }
       .audio-btn {
         top: 0;
-      }
+      }      
+    }
+
+    .webvr-button {
+      bottom: 0;
     }
 
     canvas.app {
@@ -1149,6 +1145,7 @@ html.wf-active {
       }
     }
   }
+
   .devices {
 
     header a {
@@ -1167,7 +1164,8 @@ html.wf-active {
     }
 
     .section--devices .container li {
-      
+      pointer-events: all;
+
       &:nth-child(1) {
         transition: 1s .4s;
       }
@@ -1182,63 +1180,13 @@ html.wf-active {
       }
       opacity: 1;
     }
-
+    
+    // Leaving devices
     &.homeLink--clicked {
 
-      header a {
-        animation: disapearA .3s .4s forwards;
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      @keyframes disapearA{
-        to {
-          transform: scale(0.2);
-          opacity: 0;
-        }
-      }
-
-      h2 span {
-        margin-top: 30px;
+      .container, header {
         opacity: 0;
-      }
-      
-      p.notice span {
-        opacity: 0 !important;
-        margin-top: -24px !important;
-      }
-
-      .section--devices .container li {
-
-        &:nth-child(1) {
-          transition: .8s 0s;
-        }
-        &:nth-child(2) {
-          transition: .8s .1s;
-        }
-        &:nth-child(3) {
-          transition: .8s .2s;
-
-          .bottom a {
-            animation: bounce 1s;
-
-            @keyframes bounce {
-              0% {
-                transform: scale(1);
-              }
-              25% {
-                transform: scale(1.2);
-              }
-              100% {
-                transform: scale(.1);
-              }
-            }
-          }
-        }
-        &:nth-child(4) {
-          transition: .8s .3s;
-        }
-        opacity: 0;
+        transition: .75s all;
       }
     }
   }
@@ -1256,4 +1204,22 @@ body.notChrome {
     opacity: 0;
     transition: 1s 0s all;
   }
+}
+.webvr-button {
+  background-color: #fff;
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border: 0px;
+  -webkit-user-select: none;
+  cursor: pointer;
+  padding: 12px;
+  z-index: 1;
+  margin: 10px;
+  border-radius: 50%;
+  display: none;
+  right: 0px;
+  background-size: cover;
+  bottom: -80px;
+  transition: bottom .4s 1.7s ease-out;
 }
